@@ -4,7 +4,7 @@
 // Get goal
 //Route : GET api/goals
 const getGoals = (req,res) =>{
-    res.status(200).json({msg : 'Goals'})
+   res.status(200).json({message : 'Get goals'})
 }
 
 
@@ -12,7 +12,13 @@ const getGoals = (req,res) =>{
 // Set goal
 //Route : POST api/goals
 const setGoal = (req,res) =>{
-    res.status(200).json({msg : 'Set Goal'})
+    res.status(200).json({msg : 'Goals'})
+    if (!req.body.text){
+        res.status(400)
+        throw new Error('Please add a text field')
+    }
+
+    res.status(200).json({message : 'set goal'})
 }
 
 

@@ -6,7 +6,9 @@ const dotenv = require('dotenv').config()
 const port = process.env.PORT ||5000 ;
 
 const app = express()
-
+//add middleware
+app.use(express.json()) //accept data from body
+app.use(express.urlencoded({extended : false}))
 
 app.use('/api/goals', require('./routes/goalRoutes'))            
 
